@@ -106,11 +106,19 @@ KEY1:
     GOSUB leap_left_right
     GOSUB walk_left_right
 	GOSUB clap_hands
-
+	GOSUB leap_left_right
+    GOSUB walk_left_right
+	GOSUB hands_turnaround
+	GOSUB stretch_handsandlegs
+	GOSUB xishuashua
+	GOSUB stretch_arms
+	GOSUB wrap_head
+	GOSUB xishuashua_and_walk
+	GOSUB leap_left_delux
     GOTO RX_EXIT
     '*******************************************
 KEY2:
-    GOSUB clap_hands
+    GOSUB leap_left_delux
 
     WAIT
 
@@ -409,9 +417,9 @@ hands_front_heart:
     MOVE G6D,100,  76, 145,  93, 100, 100
 	MOVE G6B,  65, 105, 107,  ,  ,  
 	MOVE G6C,  65, 104, 107,  ,  ,  
-	DELAY 100
+	DELAY 200
 	GOSUB stand_pose
-	DELAY 300
+	DELAY 200
 	RETURN
 
 leap_left_right:
@@ -433,14 +441,14 @@ leap_left_right:
 	MOVE G6C, 135,  15,  70,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	WAIT
+	
 	MOVE G6A,  105,  103, 155,  60, 100,  
 	MOVE G6D,  105,  83, 135, 91, 100,  
 	MOVE G6B, 135,  15,  70,  ,  ,  
 	MOVE G6C, 65,  15,  70,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	DELAY 400
+	DELAY 200
 	'right move
 	SPEED 5
 	MOVE G6A, 115,  79, 143,  93, 128,  
@@ -458,14 +466,14 @@ leap_left_right:
 	MOVE G6C, 65,  15,  70,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	WAIT
+
 	MOVE G6A, 105,  83, 135, 91, 100,  
 	MOVE G6D, 105,  103, 150,  55, 100,  
 	MOVE G6B,  65,  15,  70,  ,  ,  
 	MOVE G6C, 135,  15,  70,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	DELAY 400
+	DELAY 300
 	RETURN
 
 walk_left_right:
@@ -477,7 +485,7 @@ walk_left_right:
 	MOVE G6C, 101,  46, 100,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	DELAY 200
+	DELAY 100
 	'right walk
 	MOVE G6A, 115,  79, 143,  93, 128,  
 	MOVE G6D, 100,  82, 141,  93,  97,  
@@ -485,11 +493,11 @@ walk_left_right:
 	MOVE G6C, 102,  16, 100,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	DELAY 200
+	DELAY 100
 	RETURN
 
 clap_hands:
-	SPEED 2
+	SPEED 5
 	'list right
 	MOVE G6A,  85,  76, 145,  93, 120,  
 	MOVE G6D,  95,  76, 145,  93, 100,  
@@ -504,6 +512,7 @@ clap_hands:
 	WAIT
 	SPEED 15
 	'clap hands at right
+	DELAY 200
 	MOVE G6A,  82, 113, 133,  65, 120,  
 	MOVE G6D,  92,  55, 127, 133, 107,  
 	MOVE G6B,  58, 184, 137,  ,  ,  
@@ -512,5 +521,261 @@ clap_hands:
 	GOSUB stand_pose
 	DELAY 200
 	RETURN
+
+hands_turnaround:
+	SPEED 50
+	MOVE G6A,  98, 115,  98,  94,  98,  
+	MOVE G6D, 101, 118,  92,  98, 102,  
+	MOVE G6B, 186,  20,  41,  ,  ,  
+	MOVE G6C,  10,  10,  63,  ,  ,  
+	
+	MOVE G6A,  97,  74, 144,  93, 101,  
+	MOVE G6D, 101,  79, 138,  94, 103,  
+	MOVE G6B, 188, 101,  82,  ,  ,  
+	MOVE G6C,  13, 105,  81,  ,  ,  
+	
+	MOVE G6A, 100,  73, 139, 101, 101,  
+	MOVE G6D, 100,  73, 139, 100, 102,  
+	MOVE G6B, 188, 184, 139,  ,  ,  
+	MOVE G6C,  13, 188, 148,  ,  ,  
+	WAIT
+	GOSUB stand_pose
+	RETURN
+
+stretch_handsandlegs:
+	SPEED 20
+	MOVE G6A, 100,  44, 129, 123,  99,  
+	MOVE G6D, 112, 115,  99,  95, 108,  
+	MOVE G6B, 187,  30,  80,  ,  ,  
+	MOVE G6C, 101,  32,  81,  ,  ,  
+	WAIT
+	GOSUB stand_pose
+	MOVE G6A, 108,  80, 139,  93,  93,  
+	MOVE G6D,  88,  38, 146, 124, 114,  
+	MOVE G6B, 100,  30,  81,  ,  ,  
+	MOVE G6C, 190,  32,  81,  ,  ,  
+	WAIT
+	GOSUB stand_pose
+	MOVE G6A,  78,  66, 161,  87, 102,  
+	MOVE G6D,  78,  66, 161,  87, 102,  
+	MOVE G6B, 189,  35,  83,  ,  ,  
+	MOVE G6C, 189,  35,  83,  ,  ,  
+	WAIT
+	GOSUB stand_pose
+	RETURN
+
+xishuashua:
+	SPEED 5	
+		MOVE G6A, 100, 106, 105,  94,  99,  
+		MOVE G6D, 101, 108, 105,  94,  99,  
+		MOVE G6B, 164,  14,  52,  ,  ,  
+		MOVE G6C, 163,  14,  52,  ,  ,  
+		WAIT
+	FOR i = 1 TO 5
+		SPEED 20	
+		MOVE G6A, 100, 106, 105,  94,  99,  
+		MOVE G6D, 101, 108, 105,  94,  99,  
+		MOVE G6B, 164,  14,  52,  ,  ,  
+		MOVE G6C, 163,  14,  52,  ,  ,  
+		WAIT
+		MOVE G6A, 102, 106, 104,  95,  99,  
+		MOVE G6D, 102, 108, 104,  95,  99,  
+		MOVE G6B, 164,  16,  43,  ,  ,  
+		MOVE G6C, 163,  16,  43,  ,  ,  
+		WAIT
+	NEXT i
+	GOSUB balance_pose
+	RETURN
+
+balance_pose:
+	SPEED 20
+		MOVE G6A, 101,  75, 144,  94,  99,100  
+		MOVE G6D, 101,  75, 143,  95, 100,  100
+		MOVE G6B, 102,  90, 107, 100 , 100 ,  100
+		MOVE G6C, 101, 101, 104, 100 , 100 ,  100
+		WAIT
+	RETURN
+
+stretch_arms:
+	SPEED 20
+	'right arm
+	MOVE G6A, 101,  75, 141,  94,  99,  
+	MOVE G6D, 101,  75, 143,  93,  99,  
+	MOVE G6B, 101,  30,  81,  ,  ,  
+	MOVE G6C, 100, 190, 102,  ,  ,  
+	SPEED 8
+	MOVE G6D,  85,  76, 145,  93, 120,  180
+	MOVE G6A,  95,  76, 145,  93, 100,  180
+	MOVE G6B, 101,  30,  81,  ,  ,  180
+	MOVE G6C, 100,  90, 102,  ,  ,  180
+	WAIT
+	SPEED 20
+	GOSUB balance_pose
+	'left arm
+	MOVE G6A, 100,  75, 141,  94,  99,  
+	MOVE G6D, 100,  75, 143,  93,  99,  
+	MOVE G6B, 100, 190, 100,  ,  ,  
+	MOVE G6C, 100,  10, 100,  ,  ,  
+	SPEED 8
+	MOVE G6A,  85,  76, 145,  93, 120,  20
+	MOVE G6D,  95,  76, 145,  93, 100,  20
+	MOVE G6B, 100, 100, 100,  ,  ,  20
+	MOVE G6C, 100,  10, 100,  ,  ,  20
+	WAIT
+	SPEED 20
+	GOSUB stand_pose
+	RETURN
+
+windmill:
+	SPEED 20
+	FOR i =1 TO 2
+	MOVE G6A, 100, 100, 100, 116, 100,  
+	MOVE G6D, 100, 100, 100, 116, 100,  
+	MOVE G6B,  97, 167, 189,  ,  ,  
+	MOVE G6C,  96,  67,  13,  ,  , 
+	WAIT
+	MOVE G6B, 96,  67,  13,  ,  ,
+	MOVE G6C, 97, 167, 189,  ,  ,  
+	WAIT
+	NEXT i
+	GOSUB stand_pose
+	RETURN
+	 
+
+wrap_head:
+	SPEED 10
+	MOVE G6A, 100,  44, 129, 123,  99,  
+	MOVE G6D, 112, 115,  99,  95, 108,  
+	MOVE G6B, 187,  30,  80,  ,  ,  
+	MOVE G6C, 101,  32,  81,  ,  ,  
+	WAIT
+	GOSUB stand_pose
+	DELAY 100
+	SPEED 10	
+	MOVE G6A,  99, 101,  96, 117,  ,  
+	MOVE G6D,  99, 101,  96, 117,  99,  
+	MOVE G6B, 141, 166, 179,  ,  ,  
+	MOVE G6C, 141, 166, 179,  ,  ,  
+	WAIT
+	SPEED 10
+	MOVE G6A, 100, 144,  67,  97, 100,
+	MOVE G6D, 100, 144,  67,  97, 100, 
+	MOVE G6B,  25, 166, 179,  ,  ,  
+	MOVE G6C,  25, 166, 179,  ,  ,  
+	WAIT
+	GOSUB stand_pose
+	DELAY 200
+	RETURN
+
+xishuashua_and_walk:
+	SPEED 10
+	MOVE G6A, 100, 76, 145,  93,  100,  
+	MOVE G6D, 110, 78, 144,  93,  120,  
+	
+	FOR i = 1 TO 2
+	MOVE G6B, 164,  14,  52,  ,  ,  
+	MOVE G6C, 163,  14,  52,  ,  ,  
+	MOVE G6B, 164,  16,  43,  ,  ,  
+	MOVE G6C, 163,  16,  43,  ,  ,  
+	NEXT i
+	
+	MOVE G6A, 102, 76, 145,  93,  100,  
+	MOVE G6D, 115, 79, 143,  93,  128,  
+	WAIT
+	GOSUB stand_pose
 	
 	
+	MOVE G6A, 107, 77, 144,  93,  114,  
+	MOVE G6D, 100, 82, 141,  93,  97,
+	
+	FOR i = 1 TO 2
+	MOVE G6B, 164,  14,  52,  ,  ,  
+	MOVE G6C, 163,  14,  52,  ,  ,  
+	MOVE G6B, 164,  16,  43,  ,  ,  
+	MOVE G6C, 163,  16,  43,  ,  ,  
+	NEXT i
+	
+	
+	MOVE G6A, 115,  79, 143,  93, 128,  
+	MOVE G6D, 100,  82, 141,  93,  97,  
+	WAIT
+	GOSUB stand_pose
+	
+	MOVE G6A, 100, 76, 145,  93,  100,  
+	MOVE G6D, 110, 78, 144,  93,  120,  
+	
+	FOR i = 1 TO 2
+	MOVE G6B, 164,  14,  52,  ,  ,  
+	MOVE G6C, 163,  14,  52,  ,  ,  
+	MOVE G6B, 164,  16,  43,  ,  ,  
+	MOVE G6C, 163,  16,  43,  ,  ,  
+	NEXT i
+	
+	MOVE G6A, 102, 76, 145,  93,  100,  
+	MOVE G6D, 115, 79, 143,  93,  128,  
+	WAIT
+	GOSUB stand_pose
+	
+	DELAY 200
+	RETURN
+wave_hand_pose1:
+	MOVE G6A,100,  76, 145,  93, 100, 100
+    MOVE G6D,100,  76, 145,  93,100, 100
+    MOVE G6B, 100,  78, 167,  ,  ,  	
+	MOVE G6C, 100,  78, 167,  ,  ,  
+    
+    WAIT
+    RETURN
+
+wave_hand_pose2:
+	MOVE G6A,100,  76, 145,  93, 100, 100
+    MOVE G6D,100,  76, 145,  93,100, 100
+    MOVE G6B, 100,  58, 147,  ,  ,  
+	MOVE G6C, 100,  58, 147,  ,  ,  
+    WAIT
+    RETURN
+leap_left_delux:
+'leap left to right
+	SPEED 5
+	GOSUB wave_hand_pose2
+	'left move
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 115,  79, 143,  93, 128,   
+	GOSUB wave_hand_pose1 
+	WAIT
+	 
+	'front back leap
+	SPEED 10
+	MOVE G6A,  98,  42, 146, 134, 107,  
+	MOVE G6D, 100, 105, 144,  72,  96,  
+	GOSUB wave_hand_pose2
+	WAIT
+	 
+	
+	MOVE G6A,  99, 103, 135,  66, 106,  
+	MOVE G6D, 100,  56, 143, 109,  96,   
+	GOSUB wave_hand_pose1 
+	WAIT
+	DELAY 200
+	'right move
+	SPEED 5
+	MOVE G6A, 115,  79, 143,  93, 128,  
+	MOVE G6D, 100,  76, 145,  93, 100,  
+	GOSUB wave_hand_pose2 
+	WAIT
+	DELAY 200
+	'back front leap
+	SPEED 10
+	MOVE G6A,  100,  105, 144,  72, 96,  
+	MOVE G6D,  98,  42, 146, 134, 107,  
+	GOSUB wave_hand_pose1 
+	WAIT
+
+	MOVE G6A, 100,  56, 143, 109, 96,  
+	MOVE G6D, 99,  103, 135, 66 , 106,  
+	GOSUB wave_hand_pose2 
+	WAIT
+	GOSUB stand_pose
+	DELAY 300
+	RETURN
+
