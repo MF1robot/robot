@@ -103,27 +103,43 @@ MAIN: '
 KEY1:
     GOSUB hand_front_side
     GOSUB hands_front_heart
-    GOSUB leap_left_right
-    GOSUB walk_left_right
-	GOSUB clap_hands
-	GOSUB leap_left_right
-    GOSUB walk_left_right
-	GOSUB hands_turnaround
-	GOSUB stretch_handsandlegs
-	GOSUB xishuashua
-	GOSUB stretch_arms
-	GOSUB wrap_head
-	GOSUB xishuashua_and_walk
-	FOR i = 1 TO 2
-		GOSUB leap_left_delux
+    FOR j = 1 TO 3
+    	GOSUB leap_left_right
+	    GOSUB walk_left_right
+		GOSUB clap_hands
+		GOSUB leap_left_right
+    	GOSUB walk_left_right
 		GOSUB hands_turnaround
-		WAIT
+		IF j < 3 THEN
+		GOSUB stretch_handsandlegs
+		GOSUB xishuashua
+		GOSUB stretch_arms
+		GOSUB wrap_head
+		GOSUB xishuashua_and_walk
+		FOR i = 1 TO 2
+			GOSUB leap_left_delux
+			GOSUB hands_turnaround
+			WAIT
+		NEXT i
+		FOR i = 1 TO 2
+			GOSUB hand_front_side_delux 
+			GOSUB hands_front_heart_delux 
+		NEXT i
+		ENDIF
+	NEXT j
+	' begin at 2min38s
+	' need completed -- brand new gesture
+	' end at 2min54s
+	FOR i = 1 TO 2
+		GOSUB hand_front_side_delux 
+		GOSUB hands_front_heart_delux 
 	NEXT i
-	GOSUB hand_front_side_delux
+	' begin at 3min08s
+	' strange turnaround
     GOTO RX_EXIT
     '*******************************************
 KEY2:
-    GOSUB hand_front_side_delux
+    GOSUB hands_front_heart_delux
 	
     WAIT
 
@@ -479,21 +495,29 @@ leap_left_right:
 walk_left_right:
 	SPEED 5
 	'left walk
-	MOVE G6A, 100,  76, 145,  93, 100,  
-	MOVE G6D, 115,  79, 143,  93, 128,  
+	GOSUB left_walk  
 	MOVE G6B, 100,  30,  80,  ,  ,  
 	MOVE G6C, 101,  46, 100,  ,  ,  
 	WAIT
 	GOSUB stand_pose
 	DELAY 100
 	'right walk
-	MOVE G6A, 115,  79, 143,  93, 128,  
-	MOVE G6D, 100,  76, 145,  93,  100,  
+	GOSUB right_walk
 	MOVE G6B, 101,  46, 100,  ,  ,  
 	MOVE G6C, 102,  30, 80,  ,  ,  
 	WAIT
 	GOSUB stand_pose
 	DELAY 100
+	RETURN
+
+left_walk:
+	MOVE G6A, 100,  76, 145,  93, 100,  
+	MOVE G6D, 115,  79, 143,  93, 128,  
+	RETURN
+
+right_walk:
+	MOVE G6A, 115,  79, 143,  93, 128,  
+	MOVE G6D, 100,  76, 145,  93,  100,  
 	RETURN
 
 clap_hands:
@@ -783,8 +807,7 @@ hand_front_side_delux:
 	'move hand from front to side with walking
 	'left hand, right walk
 	SPEED 13
-	MOVE G6A, 115,  79, 143,  93, 128,  
-	MOVE G6D, 100,  76, 145,  93,  100,  
+	GOSUB right_walk
 	MOVE G6B, 190,  10,  50,  ,  ,  
 	MOVE G6C, 100,  64,  10,  ,  ,  
 	SPEED 10 'wave hand, crouch
@@ -810,8 +833,7 @@ hand_front_side_delux:
 	WAIT
 	'right hand, left walk
 	SPEED 13
-	MOVE G6A, 100,  76, 145,  93, 100,  
-	MOVE G6D, 115,  79, 143,  93, 128,  
+	GOSUB left_walk
 	MOVE G6C, 190,  10,  50,  ,  , 
 	MOVE G6B, 100,  64,  10,  ,  ,  
 	SPEED 10 'wave hand, crouch
@@ -835,4 +857,40 @@ hand_front_side_delux:
 	WAIT
 	GOSUB stand_pose
 	WAIT
+	RETURN
+	
+hands_front_heart_delux:
+	'hands move from front with heart shape and walking steps
+	SPEED 10
+	'left hand, right walk
+	GOSUB right_walk
+	MOVE G6B,  11, 166, 167,  ,  ,  
+	MOVE G6C, 100,  30,  80,  ,  ,  
+	WAIT
+	'stand
+	MOVE G6A,100,  76, 145,  93, 100, 100
+    MOVE G6D,100,  76, 145,  93, 100, 100
+	'right hand, left walk
+	GOSUB left_walk
+	MOVE G6B,  11, 166, 167,  ,  ,  
+	MOVE G6C,  19, 188, 147,  ,  ,  
+	WAIT
+	SPEED 12 'wave to side
+	MOVE G6A,100,  76, 145,  93, 100, 100
+    MOVE G6D,100,  76, 145,  93, 100, 100
+	MOVE G6B,  30, 187, 112,  ,  ,  
+	MOVE G6C,  32, 188, 111,  ,  ,  
+	WAIT
+	MOVE G6A, 100,  83, 125, 113, 100,  
+	MOVE G6D, 100,  83, 125, 113, 100,  
+	MOVE G6B,  11, 157, 112,  ,  ,  
+	MOVE G6C,  13, 155, 111,  ,  ,  
+	WAIT
+	MOVE G6A,100,  76, 145,  93, 100, 100
+    MOVE G6D,100,  76, 145,  93, 100, 100
+	MOVE G6B,  65, 105, 107,  ,  ,  
+	MOVE G6C,  65, 104, 107,  ,  ,  
+	WAIT
+	GOSUB stand_pose
+	DELAY 200
 	RETURN
