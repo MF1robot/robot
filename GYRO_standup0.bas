@@ -94,13 +94,13 @@ MAIN: '
     ERX 4800,A,MAIN				'通过RX端口接收RS232信号;4800:端口速度；A:端口号
     A_old = A
     '根据变量的值条件转移,A=0跳转到MAIN，A=1跳转到'...
-    ON A GOTO MAIN,KEY1,KEY2,KEY3',KEY4,KEY5,KEY6,KEY7,KEY8,KEY9,KEY10,KEY11,KEY12,KEY13,KEY14,KEY15,KEY16,KEY17,KEY18 ,KEY19,KEY20,KEY21,KEY22,KEY23,KEY24,KEY25',KEY26,KEY27,KEY28 ,KEY29,KEY30,KEY31,KEY32
+    ON A GOTO MAIN,KEY1,KEY2,KEY3,KEY4,'KEY5,KEY6,KEY7,KEY8,KEY9,KEY10,KEY11,KEY12,KEY13,KEY14,KEY15,KEY16,KEY17,KEY18 ,KEY19,KEY20,KEY21,KEY22,KEY23,KEY24,KEY25',KEY26,KEY27,KEY28 ,KEY29,KEY30,KEY31,KEY32
     '
     '    GOTO MAIN					跳转到MAIN	
     '*******************************************
     '*******************************************
     '*******************************************
-KEY1:
+KEY1: 'https://www.bilibili.com/video/av9147838?from=search&seid=382298428506653669
     GOSUB hand_front_side  '0min5s
     GOSUB hands_front_heart ' 0min11s
     FOR j = 1 TO 3			'2nd loop begin at 1min02s
@@ -146,21 +146,17 @@ KEY1:
 	' strange turnaround
     GOTO RX_EXIT
     '*******************************************
-KEY2:
-	GOSUB xishuashua_and_walk
-	FOR i = 1 TO 2
-		GOSUB leap_left_delux
-		GOSUB hands_turnaround_delux
-		WAIT
-	NEXT i
-	DELAY 100
-	FOR i = 1 TO 2
-		GOSUB hand_front_side_delux
-		DELAY 300 
-		GOSUB hands_front_heart_delux 
-	NEXT i
-    WAIT
-
+KEY2:'music <云水禅心>
+	'movement: https://www.bilibili.com/video/av4301336 太极十六式
+	'https://www.bilibili.com/video/av21169368 太极八式
+	GOSUB initiation
+	GOSUB yemafenzong'野马分鬃
+	GOSUB baiheliangchi'白鹤亮翅
+	GOSUB louxiaobu'搂膝拗步
+	'云手 八 2min18s
+	'手挥琵琶 八 1min22s
+	'金鸡独立 八 2min05s
+	'收势 八 2min50s
 
     GOTO RX_EXIT
     '*******************************************
@@ -1159,12 +1155,121 @@ side_roll:
 	MOVE G6B, 100, 164, 190,  ,  ,  
 	MOVE G6C, 101, 109, 179,  ,  ,  
 	WAIT
-	 
-
+	
 	RETURN
 
+initiation:
+	'to prepare for the following moves
+	'video 十六 15-27s
+	SPEED 5
+	'move left
+	MOVE G6A, 103, 110,  87, 105, 125,  
+	MOVE G6D, 100, 110, 100, 104, 100,  
+	MOVE G6B, 103,  44,  81,  ,  ,  
+	MOVE G6C, 100,  30,  80,  ,  ,  
+	WAIT
+	'lift hands
+	MOVE G6A,  91, 127,  85,  96, 109, 'taiji stand 
+	MOVE G6D,  91, 127,  85,  96, 109,  
+	MOVE G6B, 185,  28,  67,  ,  ,  
+	MOVE G6C, 190,  28,  67,  ,  ,  
+	WAIT
+	'lower hands
+	MOVE G6A,  91, 127,  85,  96, 109,  
+	MOVE G6D,  91, 127,  85,  96, 109,  
+	MOVE G6B, 138,  30,  68,  ,  ,  
+	MOVE G6C, 142,  30,  68,  ,  ,  
+	DELAY 200
+	RETURN
 	
+yemafenzong:
+	'野马分鬃
+	'video 十六 28-45s
+	SPEED 5
+	'left
+	MOVE G6A, 101,  78, 126, 108, 144,  120
+	MOVE G6D,  98, 105, 112,  99, 102,  120
+	MOVE G6B, 179,  15,  25,  ,  ,  120
+	MOVE G6C, 190,  32,  69,  ,  ,  120
+	WAIT
+	MOVE G6A,  95,  65, 102, 136, 112,  60
+	MOVE G6D,  96, 107, 173,  27, 101,  60
+	MOVE G6B, 176,  29,  42,  ,  ,  60
+	MOVE G6C, 190,  15,  27,  ,  ,  60
+	WAIT
+	MOVE G6A,  95,  65, 102, 136, 112,  
+	MOVE G6D,  96, 107, 173,  27, 101,  
+	MOVE G6B, 176,  29,  42,  ,  ,  
+	MOVE G6C,  76,  54,  78,  ,  ,  
+	WAIT
+	'left to right
+	MOVE G6A,  94,  14, 161, 125, 138,  100
+	MOVE G6D, 103, 149,  88,  78,  95,  100
+	MOVE G6B, 176,  29,  42,  ,  ,  100
+	MOVE G6C, 100,  54,  78,  ,  ,  100
+	WAIT
+	MOVE G6A,  96, 103, 101, 110, 115,  
+	MOVE G6D,  85,  93, 133,  94, 110,  
+	MOVE G6B, 176,  29,  42,  ,  ,  
+	MOVE G6C, 149,  38,  64,  ,  ,  
+	WAIT
+	'right -- reverse of 'left'
+	MOVE G6D, 101,  78, 126, 108, 144,  80
+	MOVE G6A,  98, 105, 112,  99, 102,  80
+	MOVE G6C, 179,  15,  25,  ,  ,  80
+	MOVE G6B, 190,  32,  69,  ,  ,  80
+	WAIT
+	MOVE G6D,  95,  65, 102, 136, 112,  140
+	MOVE G6A,  96, 107, 173,  27, 101,  140
+	MOVE G6C, 176,  29,  42,  ,  ,  140
+	MOVE G6B, 190,  15,  27,  ,  ,  140
+	WAIT
+	MOVE G6D,  95,  65, 102, 136, 112,  
+	MOVE G6A,  96, 107, 173,  27, 101,  
+	MOVE G6C, 176,  29,  42,  ,  ,  
+	MOVE G6B,  76,  54,  78,  ,  ,  
+	WAIT
+	'end
+	MOVE G6A,  91, 127,  85,  96, 109,100  
+	MOVE G6D,  91, 127,  85,  96, 109,  100
+	MOVE G6B, 159,  25,  42,  ,  ,  100
+	MOVE G6C, 162,  15,  54,  ,  ,  100
+	DELAY 200
+	RETURN
 	
-
-
+baiheliangchi:
+	'左白鹤亮翅
+	'video 46-58s
+	SPEED 5
+	'亮翅
+	MOVE G6A, 111, 153,  53,  96,  94,  20
+	MOVE G6D,  78, 115,  44, 148, 119,  20
+	MOVE G6B,  92, 141, 146,  ,  ,  20
+	MOVE G6C, 155,  27,  79,  ,  ,  20
+	WAIT
+	MOVE G6A, 106, 145,  73,  90, 100,100  
+	MOVE G6D,  93,  23, 115, 148, 103,  100
+	MOVE G6B,  92, 141, 146,  ,  ,  100
+	MOVE G6C, 112,  40,  63,  ,  ,  100
+	WAIT
+	'收翅
+	MOVE G6A, 106, 145,  73,  90, 100,  60
+	MOVE G6D,  94,  82,  54, 148, 104,  60
+	MOVE G6B, 184,  13,  22,  ,  ,  60
+	MOVE G6C, 190,  74,  80,  ,  ,  60
+	WAIT
+	MOVE G6A, 106, 145,  73,  90, 100,  20
+	MOVE G6D,  89, 108,  46, 125, 106,  20
+	MOVE G6B, 187,  75,  79,  ,  ,  20
+	MOVE G6C, 190,  17,  13,  ,  ,  20
+	DELAY 200
+	RETURN
 	
+louxiaobu:
+	'左右搂膝拗步
+	'video 十六 59-1min11s
+	MOVE G6A,  93, 147, 110,  54, 113,  
+	MOVE G6D,  95, 106,  65, 139, 102,  
+	MOVE G6B, 182,  13,  64,  ,  ,  
+	MOVE G6C, 156,  40,  37,  ,  ,  
+	WAIT
