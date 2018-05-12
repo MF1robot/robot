@@ -118,9 +118,10 @@ KEY1:
 		GOSUB xishuashua_and_walk
 		FOR i = 1 TO 2
 			GOSUB leap_left_delux
-			GOSUB hands_turnaround
+			GOSUB hands_turnaround_delux
 			WAIT
 		NEXT i
+		DELAY 100
 		FOR i = 1 TO 2
 			GOSUB hand_front_side_delux
 			DELAY 300 
@@ -146,17 +147,25 @@ KEY1:
     GOTO RX_EXIT
     '*******************************************
 KEY2:
-    GOSUB leap_left_right
-	GOSUB walk_left_right
-    GOSUB clap_hands
+	GOSUB xishuashua_and_walk
+	FOR i = 1 TO 2
+		GOSUB leap_left_delux
+		GOSUB hands_turnaround_delux
+		WAIT
+	NEXT i
+	DELAY 100
+	FOR i = 1 TO 2
+		GOSUB hand_front_side_delux
+		DELAY 300 
+		GOSUB hands_front_heart_delux 
+	NEXT i
     WAIT
 
 
     GOTO RX_EXIT
     '*******************************************
 KEY3:
-	GOSUB leap_left_right 
-	GOSUB walk_left_right
+	GOSUB hands_turnaround_delux
 
     GOTO RX_EXIT
 
@@ -491,13 +500,13 @@ leap_left_right:
 	WAIT
 	GOSUB stand_pose
 	WAIT
-	MOVE G6A,  96,  44, 159, 113, 104,  
-	MOVE G6D,  97,  88, 138,  89, 105,  
+	MOVE G6A,  97,  68, 128, 116,  ,  
+	MOVE G6D,  98,  97, 140,  79, 104,  
 	MOVE G6B,  72,  23,  80,  ,  ,  
 	MOVE G6C, 146,  22,  81,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	DELAY 200
+	DELAY 150
 	RETURN
 
 walk_left_right:
@@ -508,14 +517,14 @@ walk_left_right:
 	MOVE G6C, 101,  46, 100,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	DELAY 250
+	DELAY 200
 	'right walk
 	GOSUB right_walk
 	MOVE G6B, 101,  46, 100,  ,  ,  
 	MOVE G6C, 100,  30, 80,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	DELAY 250
+	DELAY 200
 	RETURN
 
 left_walk:
@@ -539,8 +548,8 @@ clap_hands:
 	'list left
 	MOVE G6D,  85,  76, 145,  93, 120,  
 	MOVE G6A,  95,  76, 145,  93, 100,  
-	MOVE G6B, 100,  45,  80,  ,  ,  
-	MOVE G6C, 100,  20,  80,  ,  ,  
+	MOVE G6C, 100,  45,  80,  ,  ,  
+	MOVE G6B, 100,  20,  80,  ,  ,  
 	WAIT
 	SPEED 15
 	'clap hands at right
@@ -551,7 +560,7 @@ clap_hands:
 	MOVE G6C,  58, 188, 144,  ,  ,  
 	WAIT
 	GOSUB stand_pose
-	DELAY 200
+	DELAY 100
 	RETURN
 
 hands_turnaround:
@@ -565,12 +574,11 @@ hands_turnaround:
 	MOVE G6D, 101,  79, 138,  94, 103,  
 	MOVE G6B, 188, 101,  82,  ,  ,  
 	MOVE G6C,  13, 105,  81,  ,  ,  
-	DELAY 100
 	MOVE G6A, 100,  73, 139, 101, 101,  
 	MOVE G6D, 100,  73, 139, 100, 102,  
 	MOVE G6B, 188, 184, 139,  ,  ,  
 	MOVE G6C,  13, 188, 148,  ,  ,  
-	DELAY 100
+	DELAY 200
 	GOSUB stand_pose
 	DELAY 300
 	RETURN
@@ -736,7 +744,7 @@ xishuashua_and_walk:
 	
 	MOVE G6A, 100, 76, 145,  93,  100,  
 	MOVE G6D, 110, 78, 144,  93,  120,  
-	
+	SPEED 8
 	FOR i = 1 TO 2
 	MOVE G6B, 164,  14,  52,  ,  ,  
 	MOVE G6C, 163,  14,  52,  ,  ,  
@@ -769,10 +777,10 @@ wave_hand_pose2:
     RETURN
 leap_left_delux:
 'leap left to right
-	DELAY 100
-	SPEED 5
+	SPEED 10
 	GOSUB wave_hand_pose2
 	'left move
+	SPEED 5
 	MOVE G6A, 100,  76, 145,  93, 100,  
 	MOVE G6D, 115,  79, 143,  93, 128,   
 	GOSUB wave_hand_pose1 
@@ -784,10 +792,9 @@ leap_left_delux:
 	MOVE G6D, 100, 105, 144,  72,  96,  
 	GOSUB wave_hand_pose2
 	WAIT
-	 
 	
-	MOVE G6A,  99, 103, 135,  66, 106,  
-	MOVE G6D, 100,  56, 143, 109,  96,   
+	MOVE G6D,  98,  42, 146, 134, 107,  
+	MOVE G6A, 100, 105, 144,  72,  96,  
 	GOSUB wave_hand_pose1 
 	DELAY 200
 	'right move
@@ -809,6 +816,28 @@ leap_left_delux:
 	DELAY 200
 	GOSUB stand_pose
 	DELAY 300
+	RETURN
+
+hands_turnaround_delux:
+	SPEED 10
+	MOVE G6A,  98, 115,  98,  94,  98,  
+	MOVE G6D, 101, 118,  92,  98, 102,  
+	MOVE G6B, 186,  20,  41,  ,  ,  
+	MOVE G6C,  10,  10,  63,  ,  ,  
+	DELAY 100
+	SPEED 15
+	MOVE G6A,  97,  74, 144,  93, 101,  180
+	MOVE G6D, 101,  79, 138,  94, 103,  180
+	MOVE G6B, 188, 101,  82,  ,  ,  180
+	MOVE G6C,  13, 105,  81,  ,  ,  180
+	MOVE G6A, 100,  73, 139, 101, 101, 20 
+	MOVE G6D, 100,  73, 139, 100, 102,  20
+	MOVE G6B, 188, 184, 139,  ,  ,  20
+	MOVE G6C,  13, 188, 148,  ,  ,  20
+	DELAY 100
+	SPEED 10
+	GOSUB stand_pose
+	DELAY 200
 	RETURN
 
 hand_front_side_delux:
@@ -930,6 +959,7 @@ hands_front_heart_delux:
 	'stand
 	MOVE G6A,100,  76, 145,  93, 100, 100
     MOVE G6D,100,  76, 145,  93, 100, 100
+    WAIT
 	'right hand, left walk
 	GOSUB left_walk
 	MOVE G6B,  11, 166, 167,  ,  ,  
