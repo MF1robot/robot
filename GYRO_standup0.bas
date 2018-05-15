@@ -94,7 +94,7 @@ MAIN: '
     ERX 4800,A,MAIN				'通过RX端口接收RS232信号;4800:端口速度；A:端口号
     A_old = A
     '根据变量的值条件转移,A=0跳转到MAIN，A=1跳转到'...
-    ON A GOTO MAIN,KEY1,KEY2,KEY3,KEY4,'KEY5,KEY6,KEY7,KEY8,KEY9,KEY10,KEY11,KEY12,KEY13,KEY14,KEY15,KEY16,KEY17,KEY18 ,KEY19,KEY20,KEY21,KEY22,KEY23,KEY24,KEY25',KEY26,KEY27,KEY28 ,KEY29,KEY30,KEY31,KEY32
+    ON A GOTO MAIN,KEY1,KEY2,KEY3',KEY4,KEY5,KEY6,KEY7,KEY8,KEY9,KEY10,KEY11,KEY12,KEY13,KEY14,KEY15,KEY16,KEY17,KEY18 ,KEY19,KEY20,KEY21,KEY22,KEY23,KEY24,KEY25',KEY26,KEY27,KEY28 ,KEY29,KEY30,KEY31,KEY32
     '
     '    GOTO MAIN					跳转到MAIN	
     '*******************************************
@@ -153,15 +153,16 @@ KEY2:'music <云水禅心>
 	GOSUB yemafenzong'野马分鬃
 	GOSUB baiheliangchi'白鹤亮翅
 	GOSUB louxiaobu'搂膝拗步
-	'云手 八 2min18s
-	'手挥琵琶 八 1min22s
-	'金鸡独立 八 2min05s
-	'收势 八 2min50s
+	GOTO RX_EXIT
+	GOSUB yunshou'云手 八 2min18s
+	GOSUB shouhuipipa'手挥琵琶 八 1min22s
+	GOSUB jinjiduli'金鸡独立 八 2min05s
+	GOSUB shoushi'收势 八 2min50s
 
     GOTO RX_EXIT
     '*******************************************
 KEY3:
-	GOSUB hands_turnaround_delux
+	GOSUB jinjiduli
 
     GOTO RX_EXIT
 
@@ -483,7 +484,7 @@ leap_left_right:
 	MOVE G6B, 101,  46, 100,  ,  ,  
 	MOVE G6C, 102,  16, 100,  ,  ,  
 	WAIT	
-	speed 10
+	SPEED 10
 	GOSUB stand_pose
 	WAIT
 	'back front leap
@@ -1181,7 +1182,17 @@ initiation:
 	MOVE G6C, 142,  30,  68,  ,  ,  
 	DELAY 200
 	RETURN
-	
+
+baoqiu:
+	SPEED 5 
+	'lower hands
+	MOVE G6A,  91, 127,  85,  96, 109,  100
+	MOVE G6D,  91, 127,  85,  96, 109,  100
+	MOVE G6B, 138,  30,  68,  ,  ,  100
+	MOVE G6C, 142,  30,  68,  ,  ,  100
+	DELAY 200
+	RETURN	
+
 yemafenzong:
 	'野马分鬃
 	'video 十六 28-45s
@@ -1273,3 +1284,179 @@ louxiaobu:
 	MOVE G6B, 182,  13,  64,  ,  ,  
 	MOVE G6C, 156,  40,  37,  ,  ,  
 	WAIT
+	RETURN
+
+yunshou:
+	'左右云手
+	'video 8  2min18-2min30
+	'left
+	'右脚尖着地
+	SPEED 4
+	MOVE G6A, 110, 155,  64,  91,  92,  
+	MOVE G6D,  78,  14, 118, 156, 125,  
+	MOVE G6B, 90,  60,  100,  ,  ,  
+	MOVE G6C, 160,  23,  71,  ,  ,
+	WAIT
+	DELAY 200     
+	'重心左移
+	WAIT
+	MOVE G6A,  97, 137,  77,  92, 107,  20
+	MOVE G6D,  64,  92, 133,  79, 136, 20 
+	MOVE G6B,  88, 105, 137,  ,  ,  20
+	MOVE G6C,  160,  11,  44,  ,  ,  20
+	WAIT
+	DELAY 200
+	'l2r 转换姿势
+	SPEED 3
+	MOVE G6A,  85, 128,  84,  97, 119, 60 
+	MOVE G6D,  98, 133,  91,  88, 101,  60
+	MOVE G6B, 122,  53, 114,  ,  ,  60
+	MOVE G6C, 180,  11,  32,  ,  ,  60
+	WAIT
+	
+	MOVE G6A,  90, 101, 127,  80, 112,  100
+	MOVE G6D, 100, 106, 113,  85, 101,  100
+	MOVE G6B, 140,  40,  70,  ,  ,  100
+	MOVE G6C, 160,  23,  71,  ,  ,  100
+	WAIT
+	
+	'right
+    SPEED 4
+	MOVE G6A,  64,  92, 133,  79, 136, 180 
+	MOVE G6D,  97, 137,  77,  92, 107,  180
+	MOVE G6B, 166,  11,  44,  ,  ,  180
+	MOVE G6C,  88, 105, 137,  ,  ,  180
+	WAIT
+	DELAY 200
+	'r2l 转换姿势
+	SPEED 3
+	MOVE G6A,  98, 133,  91,  88, 101,  140 
+	MOVE G6D,  85, 128,  84,  97, 119, 140 
+	MOVE G6B, 180,  11,  32,  ,  ,  140
+	MOVE G6C, 122,  53, 114,  ,  ,  140
+	WAIT
+	MOVE G6A,  90, 101, 127,  80, 112,  100
+	MOVE G6D,  100, 106, 113,  85, 101,  100
+	MOVE G6B,  160,  23,  71,  ,  ,  100
+	MOVE G6C,  140,  40,  70,  ,  ,  100
+	WAIT
+	'left
+	MOVE G6A,  97, 137,  77,  92, 107,  20
+	MOVE G6D,  64,  92, 133,  79, 136, 20 
+	MOVE G6B,  88, 105, 137,  ,  ,  20
+	MOVE G6C,  166,  11,  44,  ,  ,  20
+	DELAY 300
+	RETURN 
+
+shouhuipipa:
+	GOSUB baoqiu
+	SPEED 3
+	'stand_up
+	MOVE G6A,  66,  54, 136, 131, 116, 80 
+	MOVE G6D,  77, 101,  98, 124, 100,  80
+	MOVE G6B, 117,  86,  80,  ,  ,  80
+	MOVE G6C, 123,  99,  83,  ,  , 80
+	DELAY 200
+	SPEED 3
+	'left
+	MOVE G6A,  67,  30,  72, 163, 129, 40 
+	MOVE G6D, 120, 151,  55, 108,  88,  40
+	MOVE G6B, 102,  81, 180,  ,  ,  40
+	MOVE G6C, 187,  10,  10,  ,  ,  40
+	WAIT
+	DELAY 500
+	GOSUB baoqiu
+	SPEED 2
+	'双手前平举
+	MOVE G6A , 95, 100, 120, 94, 104,
+	MOVE G6D , 95, 100, 120, 94, 104,
+	MOVE G6B, 188,  10,  83,  ,  ,  
+	MOVE G6C, 190,  11,  83,  ,  ,
+	WAIT
+	DELAY 400
+	'right
+	SPEED 3
+	MOVE G6A,  77, 101,  98, 124, 100,
+	MOVE G6D,  66,  54, 136, 131, 116,    
+	WAIT
+	
+	MOVE G6A, 116, 127,  74, 119,  88,160 
+	MOVE G6D,  81,  14, 115, 162, 117, 160
+	MOVE G6B, 187,  10,  10,  ,  ,160
+	MOVE G6C, 102,  81, 180,  ,  ,  160
+	DELAY 500
+	RETURN 
+	
+jinjiduli:
+	SPEED 5
+	'squat
+	MOVE G6A,  84,  94,  45, 158, 119,  
+	MOVE G6D, 109, 138,  55, 121,  88,  
+	MOVE G6B, 105,  40,  120,  ,  ,  
+	MOVE G6C, 120,  28,  60,  ,  ,  
+	'raise l_leg
+	MOVE G6A, 108,  10,  84, 160, 125,  60
+	MOVE G6D, 116, 106, 104, 109,  80,  60
+	MOVE G6B, 113,  57, 189,  ,  ,  60
+	MOVE G6C, 143,  25,  35,  ,  ,  60
+	WAIT
+	DELAY 300
+	'front_pose
+	MOVE G6A, 96, 99,  93, 120, 105,  100
+	MOVE G6D, 101, 103,  93, 120, 105,  100
+	MOVE G6B, 187,  25,  62,  ,  ,  100
+	MOVE G6C, 153,  25,  35,  ,  ,  100
+	WAIT 
+	
+	MOVE G6A,  96, 107, 173,  27, 101,  
+	MOVE G6D,  95,  65, 102, 136, 112,
+	MOVE G6B,  153,  25,  35,  ,  ,  
+	MOVE G6C,  187,  25,  62,  ,  ,  
+	WAIT
+	MOVE G6A, 96, 99,  93, 120, 105,  
+	MOVE G6D, 101, 103,  93, 120, 105, 
+	MOVE G6B, 187,  25,  62,  ,  ,  
+	MOVE G6C, 153,  25,  35,  ,  ,   
+	WAIT
+	
+	'squat
+	MOVE G6A, 109, 138,  55, 121,  88, 
+	MOVE G6D, 84,  94,  45, 158, 119,  
+	MOVE G6B, 170,  25,  50,  ,  , 
+	MOVE G6C, 140,  40, 110,  ,  ,  
+	WAIT
+	'rasie r_leg
+	MOVE G6A, 116, 98, 104, 109,  80,  140
+	MOVE G6D, 108,  10,  84, 160, 125,  140
+	MOVE G6B, 143,  25,  35,  ,  ,  140
+	MOVE G6C, 113,  57, 189,  ,  ,  140
+	WAIT
+	DELAY 300 
+	RETURN
+	
+shoushi:
+	GOSUB baoqiu
+	DELAY 400
+	
+	SPEED 3
+	'平举双手
+	MOVE G6B, 185,  70,  76,  ,  ,  
+	MOVE G6C, 190,  72,  76,  ,  ,  
+
+	WAIT 
+	DELAY 400
+	'双手前平举
+	MOVE G6A , 95, 100, 120, 94, 104,
+	MOVE G6D , 95, 100, 120, 94, 104,
+	MOVE G6B, 188,  10,  83,  ,  ,  
+	MOVE G6C, 190,  11,  83,  ,  ,
+	
+	WAIT
+	DELAY 400
+	GOSUB stand_pose  
+	RETURN
+
+	
+
+
+
