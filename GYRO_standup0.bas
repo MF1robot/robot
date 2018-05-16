@@ -161,8 +161,8 @@ KEY2:'music <ÔÆË®ìøÐÄ>
     GOTO RX_EXIT
     '*******************************************
 KEY3:
-	GOSUB jinjiduli
-
+	GOSUB baiheliangchi
+	GOSUB louxiaobu
     GOTO RX_EXIT
 
 
@@ -1278,11 +1278,37 @@ baiheliangchi:
 louxiaobu:
 	'×óÓÒÂ§Ï¥ÞÖ²½
 	'video Ê®Áù 59-1min11s
-	MOVE G6A,  93, 147, 110,  54, 113,  
-	MOVE G6D,  95, 106,  65, 139, 102,  
-	MOVE G6B, 182,  13,  64,  ,  ,  
-	MOVE G6C, 156,  40,  37,  ,  ,  
+	MOVE G6A, 106, 145,  73,  90, 100,  100
+	MOVE G6D,  93,  47, 110, 148, 103,  100
+	MOVE G6B, 187,  41,  60,  ,  ,  100
+	MOVE G6C, 168,  42,  57,  ,  ,  100
 	WAIT
+	MOVE G6A,  91, 126, 148,  36, 109,  160
+	MOVE G6D,  93,  47, 110, 148, 103,  160
+	MOVE G6B, 187,  11,  12,  ,  ,  160
+	MOVE G6C,  86,  32,  91,  ,  ,  160
+	WAIT
+	MOVE G6A, 102, 154,  82,  83,  98,  
+	MOVE G6D,  93,  41, 116, 160, 106,  
+	MOVE G6B, 185,  24,  27,  ,  ,  
+	MOVE G6C,  87,  39,  80,  ,  ,  
+	WAIT
+	MOVE G6A,  95, 128,  75, 110, 105,  
+MOVE G6D, 104, 121,  75, 111,  98,  
+	MOVE G6B, 165,  24,  42,  ,  ,  100
+	MOVE G6C, 115, 103, 171,  ,  ,  100
+	WAIT
+	MOVE G6A,  95, 105,  51, 160, 107,  
+	MOVE G6D,  98, 158,  91,  71,  98,  
+	MOVE G6B, 132,  34,  90,  ,  ,  
+	MOVE G6C, 163,  64,  87,  ,  ,  
+	WAIT
+	MOVE G6A,  93,  55, 103, 161, 103,  
+	MOVE G6D,  95, 129, 151,  46, 111,  
+	MOVE G6B,  90,  28,  90,  ,  ,  
+	MOVE G6C, 190,  16,  86,  ,  ,  
+	WAIT
+	GOSUB baoqiu
 	RETURN
 
 yunshou:
