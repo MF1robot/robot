@@ -153,7 +153,6 @@ KEY2:'music <云水禅心>
 	GOSUB yemafenzong'野马分鬃
 	GOSUB baiheliangchi'白鹤亮翅
 	GOSUB louxiaobu'搂膝拗步
-	GOTO RX_EXIT
 	GOSUB yunshou'云手 八 2min18s
 	GOSUB shouhuipipa'手挥琵琶 八 1min22s
 	GOSUB jinjiduli'金鸡独立 八 2min05s
